@@ -19,7 +19,7 @@
 
 using json = nlohmann::json;
 
-#define FEEDBACK_SERVER_ADDR "http://hikyuu.cpolar.cn"
+#define FEEDBACK_SERVER_ADDR "http://localhost"
 
 namespace hku {
 

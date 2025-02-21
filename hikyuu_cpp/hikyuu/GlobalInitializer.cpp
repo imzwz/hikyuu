@@ -67,7 +67,7 @@ void GlobalInitializer::init() {
     }
 
 #if HKU_ENABLE_SEND_FEEDBACK
-    sendFeedback();
+    // sendFeedback();
 #endif
 
 #if HKU_ENABLE_TA_LIB

@@ -32,7 +32,7 @@ option("sql_trace", {description = "trace print sql", default = false})
 -- 注意：stacktrace 在 windows 下会严重影响性能
 option("stacktrace", {description = "Enable check/assert with stack trace info.", default = false})
 option("spend_time", {description = "Enable spend time.", default = true})
-option("feedback", {description = "Enable send feedback.", default = true})
+option("feedback", {description = "Enable send feedback.", default = false})
 option("low_precision", {description = "Enable low precision.", default = false})
 option("log_level", {description = "set log level.", default = 2, values = {1, 2, 3, 4, 5, 6}})
 option("async_log", {description = "Use async log.", default = false})

@@ -139,6 +139,36 @@ string Performance::report(const TradeManagerPtr& tm, const Datetime& datetime) 
     return buf.str();
 }
 
+string Performance::report_json(const TradeManagerPtr& tm, const Datetime& datetime) {
+    std::stringstream buf;
+    HKU_INFO_IF_RETURN(!tm, buf.str(), "TradeManagerPtr is Null!");
+
+    statistics(tm, datetime);
+
+    buf << std::fixed;
+    buf.precision(2);
+
+    buf << "{";  // 开始JSON对象
+    
+    bool is_first = true;
+    buf.setf(std::ios_base::fixed);
+    buf.precision(tm->precision());
+    
+    for (const auto& key : ms_keys) {
+        if (!is_first) {
+            buf << ",";
+        }
+        buf << "\"" << key << "\": " << m_result.at(key);  // 添加JSON键值对
+        is_first = false;
+    }
+    
+    buf << "}";  // 结束JSON对象
+    
+    buf.unsetf(std::ostream::floatfield);
+    buf.precision();
+    return buf.str();
+}
+
 void Performance::statistics(const TradeManagerPtr& tm, const Datetime& datetime) {
     // 清除上次统计结果
     reset();

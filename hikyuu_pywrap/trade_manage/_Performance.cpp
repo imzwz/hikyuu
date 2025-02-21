@@ -28,6 +28,15 @@ void export_Performance(py::module& m) {
         :param TradeManager tm: 指定的交易管理实例
         :param Datetime datetime: 统计截止时刻
         :rtype: str)")
+      
+      .def("report_json", &Performance::report_json, py::arg("tm"), py::arg("datetime") = Datetime::now(),
+           R"(report_json(self, tm[, datetime=Datetime.now()])
+
+        简单的文本统计报告，用于直接输出打印, json格式
+
+        :param TradeManager tm: 指定的交易管理实例
+        :param Datetime datetime: 统计截止时刻
+        :rtype: str)")
 
       .def("statistics", &Performance::statistics, py::arg("tm"),
            py::arg("datetime") = Datetime::now(),

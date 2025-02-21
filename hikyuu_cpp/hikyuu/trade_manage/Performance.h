@@ -52,6 +52,14 @@ public:
     string report(const TradeManagerPtr& tm, const Datetime& datetime = Datetime::now());
 
     /**
+     * 简单的文本统计报告，用于直接输出打印, json格式
+     * @param tm
+     * @param datetime 指定的截止时刻
+     * @return
+     */
+    string report_json(const TradeManagerPtr& tm, const Datetime& datetime = Datetime::now());
+
+    /**
      * 根据交易记录，统计截至某一时刻的系统绩效, datetime必须大于等于lastDatetime，
      * 以便用于计算当前市值
      * @param tm 指定的交易管理实例

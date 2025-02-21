@@ -71,7 +71,7 @@ PYBIND11_MODULE(core, m) {
     setRunningInPython(true);
 
 #if HKU_ENABLE_SEND_FEEDBACK
-    sendPythonVersionFeedBack(PY_MAJOR_VERSION, PY_MINOR_VERSION, PY_MICRO_VERSION);
+    //sendPythonVersionFeedBack(PY_MAJOR_VERSION, PY_MINOR_VERSION, PY_MICRO_VERSION);
 #endif
 
     export_bind_stl(m);
